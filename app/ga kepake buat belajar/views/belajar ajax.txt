@@ -1,0 +1,68 @@
+$(".cekbal").click(function(){
+	var idpes = $(this).find(".idPes").html();
+	var siloadini = $(this).find(".loadbalasan");
+	var balasanDiv = $(this).parent().parent().find(".bwhBalasanDoank");
+	siloadini.show();
+	$.post("{{URL::to('/bukti/cekbal')}}", { _token: "{{csrf_token()}}", idP: idpes }).done(function(result) {
+		siloadini.hide();
+		balasanDiv.show();
+		balasanDiv.find("span").html(result);
+		if(result == 0){
+			balasanDiv.find("label").html("");
+		}else{
+			balasanDiv.find("label").html("Balasan untuk anda bisa dilihat pada halaman [Detail] > [Lihat SMS Balasan]");
+		}
+	});
+});
+
+$(".lihatCth").click(function(){
+	$(this).hide();
+	var loading = $(this).parent().find(".loading");
+	loading.show();
+
+	$.post("{{URL::to('/uploadbukti/getcontoh')}}", { _token: "{{csrf_token()}}" }).done(function(result) {
+		loading.hide();
+		var byk = result;
+		var iu = 0;
+		var data = "";
+		for(iu = 0 ; iu < byk ; iu++){
+			data += "<div class='perCthGbr'><img src='"+pathGambar+"/"+iu+".jpg'/></div>";
+		}
+		$("#wrapCth").show();
+		$("#wrapCth").html(data);
+
+		$(".perCthGbr").click(function(){
+			lihatGambar($(this));
+		});
+
+	});
+
+});
+
+
+
+function gantiFileGambar(idb){
+	//alert(idb);
+	var formNya = document.getElementById('formfileb'+idb);
+	$.ajax({
+		url: "{{URL::to('/adminPanel/gantiGambarMenu')}}", // Url to which the request is send
+		type: "POST",             // Type of request to be send, called as method
+		data: new FormData(formNya), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+		contentType: false,       // The content type used when sending data to the server.
+		cache: false,             // To unable request pages to be cached
+		processData:false,        // To send DOMDocument or non processed data file it is set to false
+		success: function(data)   // A function to be called if request succeeds
+		{
+			if(data == "GAGAL"){
+				alert("File Terlalu Besar, Maksimal 500KB atau 512.000 Byte");
+			}else{
+				var wrapperGambar = document.getElementById('wrapperBuatGbr' + idb);
+				d = new Date();
+				var path = "{{ asset('/foto/menu') }}/"+data;
+				
+				wrapperGambar.innerHTML = "<label for='infileb"+idb+"'><img src='"+path+"?"+d.getTime()+"'/></label>"
+				
+			}
+		}
+	});
+}
