@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2017 at 09:09 PM
+-- Generation Time: Jan 05, 2017 at 06:57 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -5404,17 +5404,19 @@ CREATE TABLE IF NOT EXISTS `itemvending` (
   `iditem` int(11) NOT NULL,
   `plus` int(11) DEFAULT NULL,
   `element` int(11) DEFAULT NULL,
-  `slothave` int(11) DEFAULT NULL,
   `leftslotunused` int(11) DEFAULT NULL,
-  `cardused` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `cardused` varchar(200) DEFAULT NULL,
+  `stock` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `itemvending`
 --
 
-INSERT INTO `itemvending` (`id`, `idvending`, `iditem`, `plus`, `element`, `slothave`, `leftslotunused`, `cardused`) VALUES
-(1, 1, 5, NULL, NULL, 0, 0, '');
+INSERT INTO `itemvending` (`id`, `idvending`, `iditem`, `plus`, `element`, `leftslotunused`, `cardused`, `stock`) VALUES
+(1, 1, 5, NULL, NULL, NULL, NULL, 0),
+(2, 2, 505, NULL, NULL, NULL, NULL, 0),
+(3, 3, 505, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -5427,7 +5429,16 @@ CREATE TABLE IF NOT EXISTS `itemvendingcard` (
   `iditemvending` int(11) NOT NULL,
   `idcard` int(11) NOT NULL,
   `qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `itemvendingcard`
+--
+
+INSERT INTO `itemvendingcard` (`id`, `iditemvending`, `idcard`, `qty`) VALUES
+(1, 3, 4001, 2),
+(2, 3, 4002, 1),
+(3, 1, 4005, 1);
 
 -- --------------------------------------------------------
 
@@ -11657,7 +11668,17 @@ CREATE TABLE IF NOT EXISTS `vending` (
 `id` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `isactive` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vending`
+--
+
+INSERT INTO `vending` (`id`, `iduser`, `isactive`) VALUES
+(1, 5, 1),
+(2, 10, 0),
+(3, 10, 1),
+(4, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -11731,17 +11752,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 -- AUTO_INCREMENT for table `itemvending`
 --
 ALTER TABLE `itemvending`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `itemvendingcard`
 --
 ALTER TABLE `itemvendingcard`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `vending`
 --
 ALTER TABLE `vending`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `versioning`
 --

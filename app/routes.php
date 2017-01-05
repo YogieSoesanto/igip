@@ -12,8 +12,22 @@ Route::get('/Get_MasterCardItem',
 	array('uses' => 'SearchVending@Get_MasterCardItem'));
 
 
-Route::get('/Get_SearchVendingItem',
+Route::get('/Get_DetailSearch_DataForClientDB',
 	array('uses' => 'SearchVending@Get_SearchVendingItem'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/getIdVending',
@@ -24,6 +38,8 @@ Route::get('/startVending',
 	array('uses' => 'Vending@startVending'));
 
 
+Route::get('/ilham',
+	array('uses' => 'Vending@startVending'));
 
 
 

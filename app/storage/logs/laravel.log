@@ -32600,3 +32600,25 @@ Stack trace:
 #16 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #17 C:\xampp\htdocs\IGIP\public\index.php(49): Illuminate\Foundation\Application->run()
 #18 {main} [] []
+[2017-01-05 18:48:13] production.ERROR: exception 'BadMethodCallException' with message 'Method [asal] does not exist.' in C:\xampp\htdocs\IGIP\vendor\laravel\framework\src\Illuminate\Routing\Controller.php:268
+Stack trace:
+#0 [internal function]: Illuminate\Routing\Controller->__call('asal', Array)
+#1 [internal function]: SearchVending->asal()
+#2 C:\xampp\htdocs\IGIP\vendor\laravel\framework\src\Illuminate\Routing\Controller.php(231): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(5847): Illuminate\Routing\Controller->callAction('asal', Array)
+#4 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(SearchVending), Object(Illuminate\Routing\Route), 'asal')
+#5 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'SearchVending', 'asal')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#8 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(11088): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 C:\xampp\htdocs\IGIP\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\IGIP\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 C:\xampp\htdocs\IGIP\index.php(19): require_once('C:\\xampp\\htdocs...')
+#19 {main} [] []
