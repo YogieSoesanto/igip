@@ -1,0 +1,94 @@
+<div class='wrapperUI_orderMenu'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<!-- <div class='tandaNya'><</div> -->
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Order Menu
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+			
+			<div class='wrapperAllMenu'>
+				<div class='wrapperParentBefore'>
+					<div id='ordermenu_textParentBefore'>-</div>
+					<input type='hidden' id='ordermenu_idKMR' />
+					<input type='hidden' id='ordermenu_urutanKMR' />
+				</div>
+
+				<div id='wrapperAllMenu' >
+			
+				</div>
+
+			</div>
+
+			<div class='wrapperAksi' id='aksi'>
+			
+				<div class='wrapperTextPerintah'>
+					<div class='title'>Keterangan</div>
+					<div class='anakKeterangan'>
+						<p>Untuk Mengubah Urutan Menu : </p>
+						<p>1. Pilih Menu yang ingin diganti urutannya</p>
+						<p>2. Perubahan urutan bisa menggunakan </p>
+						<ul><li>Panah Urutan</li><li>No. Penyisipan</li></ul>
+					</div>
+				</div>
+
+				<div class='wrapperButtonAtasBawah'>
+					<div class='title'>Panah Urutan</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							<p>
+								<span>Urutan Terpilih :</span>
+								<span id='noUrutLagiTerselect'>-</span>
+							</p>
+						</div>
+						<div class='wrapperButton'>
+							<div class='buttonNya' id='buttonAtas'>&#8593;</div>
+							<div class='buttonNya' id='buttonBawah'>&#8595;</div>
+						</div>
+					</div>
+				</div>
+
+				<div class='wrapperTextChangeNoUrut'>
+					<div class='title'>No. Penyisipan</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							<p>
+								<span>Urutan Terpilih :</span>
+								<span id='noUrutLagiTerselect'>-</span>
+							</p>
+						</div>
+						<div class='wrapperNoUrutBaru'>
+							Lokasi Penyisipan : <input id='noUrutBaruBuatTerselect' placeholder='' />
+							
+							<div class='wrapperSisipkan'>
+								<div id='buttonSisipkan'>Sisipkan</div>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

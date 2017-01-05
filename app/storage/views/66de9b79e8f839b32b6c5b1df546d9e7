@@ -1,0 +1,66 @@
+<div class='wrapperUI_manageKomposisi'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Manage Komposisi
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+			<div class='wrapperListKomposisi'>
+				<div class='wrapperParentBefore'>
+					<div id='manageKomposisi_textParentBefore'>-</div>
+					<input type='hidden' id='managekomposisi_idmenu'/>
+				</div>
+				<div id='wrapperAllKomposisi'>
+					
+				</div>
+				<div id='wrapperAllRecentKomp'>
+					
+				</div>
+			</div>
+
+			<div class='wrapperAddKomposisi'>
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Tambah Komposisi untuk Menu Ini
+					</div>
+				</div>
+				<div class='wrapperInputKompoisi'>
+					<div class='wrapperInput'>
+						<span id='textnamakomposisi'>Nama Komposisi Baru : </span>
+						<input id='managekomposisi_namakomposisi' />
+						<div class='managekomposisi_buttonaddkomposisi' onclick='addNewKomposisi_manageKomposisi()'>Tambahkan</div>
+					</div>
+					<div class='wrapperKapitalisasiNama'>
+						<span id='managekomposisi_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+				</div>
+				<div class='wrapperNyaSuggestion'>
+					<div id='managekomposisi_wrapperSuggestion'>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

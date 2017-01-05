@@ -1,0 +1,40 @@
+<html>
+<head>
+	<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+	<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+	<script type="text/javascript">
+	
+		function ins(){
+			$.post('/add',{nama: "meja"}).done(function(res){
+				if(res == 1) {
+					$.post('/sel').done(function(resres){
+						alert(resres+"");
+					});
+				}
+					
+				else alert("gagal");
+			});
+		}
+
+		function upd(){
+			$.post('/upd',{id: "3"}).done(function(res){
+				if(res == 1) alert("success");
+				else alert("gagal");
+			});
+		}
+
+		function del(){
+			$.post('/del',{id: "3"}).done(function(res){
+				if(res == 1) alert("success");
+				else alert("gagal");
+			});
+		}
+
+	</script>
+</head>
+<body>
+	<input type='button' value='Insert' onclick='ins()'/> 
+	<input type='button' value='update' onclick='upd()'/> 
+	<input type='button' value='delete' onclick='del()'/> 
+</body>
+</html>

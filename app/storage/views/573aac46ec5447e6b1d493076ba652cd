@@ -1,0 +1,130 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/ptmutasi/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/ptmutasi/main.css"); ?>' />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='buatSummary'>
+			<div class='text'>Pemilihan Data History Mutasi</div>
+			<div class='wrapPerSummary'>
+				<div class='perSummary'>
+					<div class='labelSummary'>Tanggal Mutasi</div>
+					<div class='dataSummary' id='tanggalOpname'>03 Oktober 2015</div>
+				</div>
+				<div class='perSummary'>
+					<div class='labelSummary'>Nama Barang</div>
+					<div class='dataSummary' id='namaBarang'>-</div>
+				</div>
+			</div>
+		</div>
+		<div class='wrapperSimpan' id='ws1'>
+			<div class='wrapKiri'>
+				<div class='buttonNya' id='active' onclick='checkConditionsBeforeLihat()' >
+					Lihat Mutasi
+				</div>
+			</div>
+			<div class='wrapKanan'>
+				<div class='reqdanloading'>
+					<div class='wrapReqs' id='simpan1'>
+						<div class='perReqs' id='req1'>
+							1. Memilih Tanggal Mutasi yang ingin dilihat
+						</div>
+						<div class='perReqs' id='req2'>
+							2. Memilih Barang Mutasi yang ingin dilihat
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='wrapperSimpan' id='ws2'>
+			<div class='wrapLoading' id='simpan2'>
+				<div class='text'>Sistem sedang mengecek Data Mutasi ingin anda lihat...<br/>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+		<div class='wrapperSimpan' id='ws3'>
+			<div class='wrapLoading' id='simpan2'>
+				<div class='text'>
+					Data Mutasi yang ingin anda lihat tidak ditemukan
+				</div>
+				<div class='buttonNya' id='active' onclick='setAwalSubPage()' >
+					Kembali
+				</div>
+			</div>
+		</div>
+		<div class='wrapperSimpan' id='ws4'>
+			<div class='wrapLoading' id='simpan2'>
+				<div class='text'>
+					Data berhasil ditemukan
+				</div>
+				<div class='buttonNya' id='active' onclick='lihatMutasi()' >
+					Lihat Mutasi
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage1'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'></div>
+			<div>
+				<input id='inputTanggal' type='date' onchange='gantiTanggal(this.value)' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>
+				Tanggal Mutasi Yang di pilih : <br/><div class='textTanggal' id='textTanggal'>gagaga</div>
+
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage2'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Cari Nama Barang : 
+			</div>
+			<div> <input id='inputNamaBarang' type='text' placeholder='Masukan Nama Barang' onkeyup='keyUpInputNamaBarang()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>Masukan Nama Barang pada Kotak Cari Nama Barang</div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSat'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Stok Barang</div>
+					<div class='isipenjelasan' id='stokBar'></div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

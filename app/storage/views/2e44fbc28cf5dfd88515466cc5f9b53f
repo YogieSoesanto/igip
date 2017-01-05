@@ -1,0 +1,36 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script>
+		var tglNyaDariParameter = "<?php echo $tglNya; ?>";
+	</script>
+	<script src='<?php echo asset("/js/historydetailopname/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/historydetailopname/main.css"); ?>' />
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='headerAtasNya'>
+			Detail History Opname
+			[ <span id='tglNya'></span> ] 
+		</div>
+		<div class='buatDataCekOpname'>
+			<div class='headerWrapperDataCekOpname'>
+				<div class='noBarang'>No. </div>
+				<div class='namaBarang'>Nama Barang</div>
+				<div class='namaSatuan'>Satuan Barang</div>
+				<div class='namaSupplier'>Supplier Barang</div>
+				<div class='stokAkhir'>Stok Baru</div>
+				<div class='stokAwal'>Jam Ubah</div>
+			</div>
+			<div id='wrapperDataCekOpname'>
+				
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,97 @@
+<div class='wrapperUI_editKategoriTambahan'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Edit Kategori Tambahan
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<div id='editkategoritambahan_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='editkategoritambahan_idKT' />
+						<input type='hidden' id='editkategoritambahan_idMenu' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='editkategoritambahan_textNamaBefore'>-</div></div>
+					</div>
+					<div class='wrapperNama'>
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><input id='editkategoritambahan_nama' /></div>
+					</div>
+
+					<div class='wrapperKapitalisasiNama'>
+						<span id='editkategoritambahan_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+
+					<div class='wrapperMinPilBefore'>
+						<div class='textNya'>Min Pilih</div>
+						<div class='inputNya'><div id='editkategoritambahan_textMinPilBefore'>-</div></div>
+					</div>
+					<div class='wrapperMinPil'>
+						<div class='textNya'>Min Pilih</div>
+						<div class='inputNya'><input id='editkategoritambahan_minpil' /></div>
+					</div>
+
+					<div class='wrapperMaxPilBefore'>
+						<div class='textNya'>Max Pilih</div>
+						<div class='inputNya'><div id='editkategoritambahan_textMaxPilBefore'>-</div></div>
+					</div>
+					<div class='wrapperMaxPil'>
+						<div class='textNya'>Max Pilih</div>
+						<div class='inputNya'><input id='editkategoritambahan_maxpil' /></div>
+					</div>
+
+					<div class='wrapperMaxGratisBefore'>
+						<div class='textNya'>Max Gratis</div>
+						<div class='inputNya'><div id='editkategoritambahan_textMaxGratisBefore'>-</div></div>
+					</div>
+					<div class='wrapperMaxGratis'>
+						<div class='textNya'>Max Gratis</div>
+						<div class='inputNya'><input id='editkategoritambahan_maxgratis' /></div>
+					</div>
+					
+
+			</div>
+
+			<div class='wrapperSuggestion'>
+				
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Usulan Nama Kategori Tambahan
+					</div>
+				</div>
+
+				<div class='wrapperNyaSuggestion'>
+					<div id='editkategoritambahan_wrapperSuggestion'>
+							
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

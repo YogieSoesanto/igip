@@ -1,0 +1,72 @@
+<div class='wrapperUI_deleteMenu'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Delete Menu
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+
+					<div class='wrapperParentBefore'>
+						<div id='deletemenu_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='deletemenu_idMenu' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='deletemenu_textNamaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperDescBefore'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><div id='deletemenu_textHargaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperDescBefore'>
+						<div class='textNya'>Description</div>
+						<div class='inputNya'><div id='deletemenu_textDescriptionBefore'>-</div></div>
+					</div>
+
+			</div>
+
+			<div class='wrapperVerifKode'>
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Verifikasi Kode Hapus Data
+					</div>
+				</div>
+
+				<div class='wrapperNyaVerifKode'>
+					<div class='wrapperKodeNya'>
+						Untuk menghapus menu ini, masukan Kode Penghapusan : 
+						<span id='kodeverif_deletemenu'>-</span>
+					</div>
+					<div class='wrapperIsianKodeNya'>
+						Kode Penghapusan : <input type='text' id='isiKodeVerif_deletemenu'/>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

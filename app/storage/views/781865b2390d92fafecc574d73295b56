@@ -1,0 +1,197 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/masterbarang/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/masterbarang/main.css"); ?>' />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Cari Nama Barang : 
+			</div>
+			<div> <input id='inputNamaBarang' type='text' value='Masukan Nama Barang' onkeyup='keyUpInputNamaBarang()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>Masukan Nama Barang pada Kotak Cari Nama Barang</div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+			
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSat'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Stok Barang</div>
+					<div class='isipenjelasan' id='stokBar'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Modal</div>
+					<div class='isipenjelasan' id='hargaModal'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Disc. Modal</div>
+					<div class='isipenjelasan' id='discModal'></div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='perBarang' id='active'>
+					<div class='urutanDalamWrapper' id='urutanDalamWrapper0'></div>
+					
+					<div class='showNya'>
+						<div class='kiri'>
+							<div id='namakepanjangannya'>BuahBuni</div>
+							<div class='bwhNamaKepanjangan'>
+								<div id='namaSup'>BuahBuni</div>
+								<div id='namaSat'>BuahBuni</div>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class='hiddennya' id='idBar'>1</div>
+					<div class='hiddennya' id='namaBar'>BuahBuni</div>
+					<div class='hiddennya' id='hargaModal'>rphargapersatuanterpakai</div>
+					<div class='hiddennya' id='discModal'>discpersen</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage1'>
+
+		<div class='textField'>
+			<div>
+				Pilih aksi untuk barang berikut
+			</div>
+		</div>
+
+		<div class='isi'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBarTerpilih'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSupTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSatTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Stok Barang</div>
+					<div class='isipenjelasan' id='stokBarTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Modal</div>
+					<div class='isipenjelasan' id='hargaModalTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Disc. Modal</div>
+					<div class='isipenjelasan' id='discModalTerpilih'></div>
+				</div>
+			</div>
+
+			<div class='kanan'>
+				<div class='buttonNya' id='' onmouseover='userLagiMilihAksi(0)' onclick='userChooseButtonDeleteSUBPAGE1()'>
+					Hapus Barang
+					<div class='urutanButton' id='urutanButton0'></div>
+				</div>
+				<div class='buttonNya' id='' onmouseover='userLagiMilihAksi(1)' onclick='batalPilihAksiSUBPAGE1()'>
+					Batal
+					<div class='urutanButton' id='urutanButton1'></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class='subPage' id='subPage2'>
+
+		<div class='textField'>
+			<div>
+				Anda yakin untuk menghapus barang dengan data berikut?
+			</div>
+		</div>
+
+		<div class='isi'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBarTerpilih'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSupTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSatTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Stok Barang</div>
+					<div class='isipenjelasan' id='stokBarTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Modal</div>
+					<div class='isipenjelasan' id='hargaModalTerpilih'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Disc. Modal</div>
+					<div class='isipenjelasan' id='discModalTerpilih'></div>
+				</div>
+			</div>
+
+			<div class='kanan'>
+
+				<div class='MasukanPassword'>
+					<div class='textMasukanPassword'>Masukan Password Hapus Barang</div>
+					<div><input type='password' id='inputPassword' /></div>
+				</div>
+
+				<div class='wrapLoading'>
+					<div class='timer'></div>
+				</div>
+
+				<div class='buttonNya' id='' onmouseover='userLagiMilihKonfirmasi(0)' onclick='userChooseButtonYakinSUBPAGE2()'>
+					Yakin
+					<div class='urutanButton' id='urutanButton0'></div>
+				</div>
+				<div class='buttonNya' id='' onmouseover='userLagiMilihKonfirmasi(1)' onclick='batalPilihAksiSUBPAGE2()'>
+					Tidak
+					<div class='urutanButton' id='urutanButton1'></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

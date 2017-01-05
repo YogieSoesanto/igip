@@ -1,0 +1,62 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script>
+		var tglNyaDariParameter = "<?php echo $tglNya; ?>";
+		var idBarangNyaDariParameter = "<?php echo $idB; ?>";
+	</script>
+	<script src='<?php echo asset("/js/historydetailmutasi/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/historydetailmutasi/main.css"); ?>' />
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='headerAtasNya'>
+			Detail History Mutasi
+			[ <span id='tglNya'></span> ] 
+
+		</div>
+		<div class='buatDataCekOpname'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBarTerpilih'>-</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSupTerpilih'>-</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSatTerpilih'>-</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>ID Barang</div>
+					<div class='isipenjelasan' id='idBarangTerpilih'>-</div>
+				</div>
+				<div style='display:none' id='rsKecil'></div>
+				<div style='display:none' id='nsKecil'></div>
+				<div style='display:none' id='rsBesar'></div>
+				<div style='display:none' id='nsBesar'></div>
+			</div>
+
+			<div id='headerNya'>
+				<div id='no'>No.</div>
+				<div id='jm'>Jenis Mutasi</div>
+				<div id='sa'>Sebelum Mutasi</div>
+				<div id='sb'>Setelah Mutasi</div>
+				<div id='lihat'>Nama</div>
+			</div>
+			<div id='wrapperDataCekOpname'>
+				
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

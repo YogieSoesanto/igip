@@ -1,0 +1,92 @@
+<div class='wrapperUI_copyMenu2'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Lanjutan Copy Menu
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+			
+			<div class='wrapperAllMenu'>
+				
+				<div id='wrapperAllKate_copyMenu' >
+				
+				</div>
+
+			</div>
+
+			<div class='wrapperAksi' id='aksi'>
+			
+				<div class='wrapperTextPerintah'>
+					<div class='title'>Keterangan</div>
+					<div class='anakKeterangan'>
+						<p>Pilih Kategori yang sesuai untuk Menu dibawah</p>
+					</div>
+				</div>
+
+				<div class='wrapperButtonAtasBawah'>
+					<div class='title'>Data Menu Baru</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Nama
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_namaMenu_copymenu'>Menu</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Harga
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_hargaMenu_copymenu'>Rp 200.000</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Recommended
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_recoMenu_copymenu'>Tidak</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Komposisi Dasar
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_kompMenu_copymenu'>Cabe, Babi</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Deskripsi
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_descMenu_copymenu'>-</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

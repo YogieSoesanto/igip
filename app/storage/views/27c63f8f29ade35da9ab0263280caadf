@@ -1,0 +1,24 @@
+<div class='wrapperBackToInitPage'>
+	<div class='wrapperTengahLayar'>
+		<div class='wrapLagi'>
+			<div class='wrapLagiLagi'>
+				
+				<div class='wrapperText'>
+					<div class='judulPopUp'>Konfirmasi</div>
+
+					<div class='textPopUp'>
+						<p>Anda belum menyimpan perubahan.</p>
+						<p>Yakin untuk kembali tanpa menyimpan perubahan terlebih dahulu?</p>
+					</div>
+				</div>
+
+				<div class='wrapperButton'>
+					<div class='buttonNya' onclick='setPopUp_ConfirmBackToInitPage(false)'>Tidak</div>
+					<div class='buttonNya' onclick='yakinBackToInitPage()'>Ya</div>
+				</div>
+
+			</div>
+		</div>	
+	</div>
+</div>
+<div class='panelTransparan'></div>

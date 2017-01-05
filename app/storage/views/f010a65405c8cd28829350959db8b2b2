@@ -1,0 +1,77 @@
+<div class='wrapperUI_deleteKategoriTambahan'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Delete Kategori Tambahan
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<div id='deletekategoritambahan_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='deletekategoritambahan_idKT' />
+						<input type='hidden' id='deletekategoritambahan_idMenu' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='deletekategoritambahan_textNamaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperMinPilihBefore'>
+						<div class='textNya'>Min Pilih</div>
+						<div class='inputNya'><div id='deletekategoritambahan_textMinPilihBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperMaxPilihBefore'>
+						<div class='textNya'>Max Pilih</div>
+						<div class='inputNya'><div id='deletekategoritambahan_textMaxPilihBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperMaxGratisBefore'>
+						<div class='textNya'>Max Gratis</div>
+						<div class='inputNya'><div id='deletekategoritambahan_textMaxGratisBefore'>-</div></div>
+					</div>
+
+			</div>
+
+			<div class='wrapperVerifKode'>
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Verifikasi Kode Hapus Data
+					</div>
+				</div>
+
+				<div class='wrapperNyaVerifKode'>
+					<div class='wrapperKodeNya'>
+						Untuk menghapus kate tambahan ini, masukan Kode Penghapusan : 
+						<span id='kodeverif_deletekatetambahan'>-</span>
+					</div>
+					<div class='wrapperIsianKodeNya'>
+						Kode Penghapusan : <input type='text' id='isiKodeVerif_deletekatetambahan'/>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

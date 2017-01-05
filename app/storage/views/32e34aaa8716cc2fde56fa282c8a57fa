@@ -1,0 +1,97 @@
+<div class='wrapperUI_editMenu'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Edit Menu
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<div id='editmenu_textParentBefore'>-</div>
+					</div>
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='editmenu_idMenu' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='editmenu_textNamaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperNama'>
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><input id='editmenu_nama' /></div>
+					</div>
+
+					<div class='wrapperKapitalisasiNama'>
+						<span id='editmenu_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+
+					<div class='wrapperHargaBefore'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><div id='editmenu_textHargaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperHarga'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><input id='editmenu_harga'></input></div>
+					</div>
+
+					<div class='wrapperRecoBefore'>
+						<div class='textNya'>Chef Reco</div>
+						<div class='inputNya'><div id='editmenu_textRecoBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperReco'>
+						<div class='textNya'>Chef Reco</div>
+						<div class='inputNya'><input type='checkbox' id='editmenu_isreco'></input><label for='editmenu_isreco'>Chef Recommended</label></div>
+					</div>
+
+					<div class='wrapperDescBefore'>
+						<div class='textNya'>Description</div>
+						<div class='inputNya'><div id='editmenu_textDescriptionBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperDesc'>
+						<div class='textNya'>Description</div>
+						<div class='inputNya'><textarea id='editmenu_desc'></textarea></div>
+					</div>
+
+
+			</div>
+
+			<div class='wrapperKompDasar'>
+				
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Komposisi Dasar Menu
+					</div>
+				</div>
+
+				<div class='wrapperNyaKompDasar'>
+					Jika ingin mengubah komposisi, silakan gunakan menu "Komposisi"
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

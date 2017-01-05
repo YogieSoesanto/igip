@@ -1,0 +1,78 @@
+<div class='wrapperUI_editItemKT'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Edit Item Kategori Tambahan
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<div id='edititemkt_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='edititemkt_idTamb' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='edititemkt_textNamaBefore'>-</div></div>
+					</div>
+					<div class='wrapperNama'>
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><input id='edititemkt_nama' /></div>
+					</div>
+
+					<div class='wrapperKapitalisasiNama'>
+						<span id='edititemkt_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+
+					<div class='wrapperHargaBefore'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><div id='edititemkt_textHargaBefore'>-</div></div>
+					</div>
+					<div class='wrapperHarga'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><input id='edititemkt_harga' /></div>
+					</div>
+					
+
+			</div>
+
+			<div class='wrapperSuggestion'>
+				
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Usulan Nama Item Kategori Tambahan
+					</div>
+				</div>
+
+				<div class='wrapperNyaSuggestion'>
+					<div id='edititemkt_wrapperSuggestion'>
+							
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

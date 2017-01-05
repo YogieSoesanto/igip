@@ -1,0 +1,66 @@
+<div class='wrapperUI_deleteItemKT'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Delete Item Kategori Tambahan
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<div id='deleteitemkt_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='deleteitemkt_idTamb' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='deleteitemkt_textNamaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperHargaBefore'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><div id='deleteitemkt_textHargaBefore'>-</div></div>
+					</div>
+
+			</div>
+
+			<div class='wrapperVerifKode'>
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Verifikasi Kode Hapus Data
+					</div>
+				</div>
+
+				<div class='wrapperNyaVerifKode'>
+					<div class='wrapperKodeNya'>
+						Untuk menghapus item tambahan ini, masukan Kode Penghapusan : 
+						<span id='kodeverif_deleteitemkt'>-</span>
+					</div>
+					<div class='wrapperIsianKodeNya'>
+						Kode Penghapusan : <input type='text' id='isiKodeVerif_deleteitemkt'/>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

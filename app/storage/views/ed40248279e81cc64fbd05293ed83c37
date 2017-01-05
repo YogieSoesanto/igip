@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>IGIP TESTCASE VIEWS</title>
+		<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+		<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+		<?php echo $__env->yieldContent('extFile'); ?>
+		<script>
+			$(document).ready(function(){
+				<?php echo $__env->yieldContent('docReady'); ?>
+			});
+		</script>
+	</head>
+
+	<body>
+		<?php echo $__env->yieldContent('mainBody'); ?>
+	</body>
+</html>

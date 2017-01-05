@@ -1,0 +1,156 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/masternamasatuan/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/masternamasatuan/main.css"); ?>' />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Cari Nama Satuan : 
+			</div>
+			<div> <input id='inputNamaBarang' type='text' value='Masukan Nama Satuan' onkeyup='keyUpInputNamaBarang()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>Masukan Nama Satuan pada Kotak Cari Nama Satuan	</div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+			
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Nama Satuan  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Satuan</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				
+			</div>
+			<div id='wrapperBarang'>
+				
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage1'>
+
+		<div class='textField'>
+			<div>
+				Pilih aksi untuk nama satuan berikut
+			</div>
+		</div>
+
+		<div class='isi'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Nama Satuan  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Satuan</div>
+					<div class='isipenjelasan' id='namaBarTerpilih'>Hahay</div>
+				</div>
+				
+			</div>
+
+			<div class='kanan'>	
+				<div class='buttonNya' id='' onmouseover='userLagiMilihAksi(0)' onclick='userChooseButtonDeleteSUBPAGE1()'>
+					Hapus Data
+					<div class='urutanButton' id='urutanButton0'></div>
+				</div>
+				<div class='buttonNya' id='' onmouseover='userLagiMilihAksi(1)' onclick='batalPilihAksiSUBPAGE1()'>
+					Batal
+					<div class='urutanButton' id='urutanButton1'></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class='subPage' id='subPage2'>
+
+		<div class='textField'>
+			<div>
+				Anda yakin untuk menghapus nama satuan dengan data berikut?
+			</div>
+		</div>
+
+		<div class='isi'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Nama Satuan  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Satuan</div>
+					<div class='isipenjelasan' id='namaBarTerpilih'>Hahay</div>
+				</div>
+			</div>
+
+			<div class='kanan'>
+
+				<div class='MasukanPassword'>
+					<div class='textMasukanPassword'>Masukan Password Hapus Nama Satuan</div>
+					<div><input type='password' id='inputPassword' /></div>
+				</div>
+
+				<div class='wrapLoading'>
+					<div class='timer'></div>
+				</div>
+
+				<div class='buttonNya' id='' onmouseover='userLagiMilihKonfirmasi(0)' onclick='userChooseButtonYakinSUBPAGE2()'>
+					Yakin
+					<div class='urutanButton' id='urutanButton0'></div>
+				</div>
+				<div class='buttonNya' id='' onmouseover='userLagiMilihKonfirmasi(1)' onclick='batalPilihAksiSUBPAGE2()'>
+					Tidak
+					<div class='urutanButton' id='urutanButton1'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage3'>
+
+		<div class='textField'>
+			<div>
+				Anda yakin untuk menambah nama satuan berikut?
+			</div>
+		</div>
+
+		<div class='isi'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Nama Satuan  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Satuan</div>
+					<div class='isipenjelasan' id='namaBarTerpilih'>Hahay</div>
+				</div>
+			</div>
+
+			<div class='kanan'>
+
+				<div class='wrapLoading'>
+					<div class='timer'></div>
+				</div>
+
+				<div class='buttonNya' id='' onmouseover='userLagiMilihKonfirmasiInsert(0)' onclick='userChooseButtonYakinSUBPAGE3()'>
+					Yakin
+					<div class='urutanButton' id='urutanButton0'></div>
+				</div>
+				<div class='buttonNya' id='' onmouseover='userLagiMilihKonfirmasiInsert(1)' onclick='batalPilihAksiSUBPAGE3()'>
+					Tidak
+					<div class='urutanButton' id='urutanButton1'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

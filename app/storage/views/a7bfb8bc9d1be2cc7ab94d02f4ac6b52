@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+		<script src='<?php echo asset("/js/fungsionalitas.js"); ?>'></script>
+		<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+		<?php echo $__env->yieldContent('extFile'); ?>
+		<script>
+		$(document).ready(function(){
+			<?php echo $__env->yieldContent('aftReady'); ?>
+		});
+		</script>
+	</head>
+	<body>
+		<?php echo $__env->yieldContent('bodyNya'); ?>
+	</body>
+</html>

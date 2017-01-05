@@ -1,0 +1,890 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/duplikatfakturbeli/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/duplikatfakturbeli/main.css"); ?>' />
+	<script>
+	var idFakturBuatDuplikat = "<?php echo $idF; ?>";
+	</script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+	setDataDuplikatFromIdFaktur();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div id='loadAwalBanget'>
+		<div class='wrapLoading'>
+			<div class='text'>Sistem sedang menduplikat faktur..</div>
+			<div class='text'>Harap Menunggu...</div>
+			<div class='timer'></div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage0'>
+		<div class='buatSummary'>
+			<div class='text'>Ringkasan Faktur Beli</div>
+			<div class='wrapPerSummary'>
+				<div class='perSummary'>
+					<div class='labelSummary'>Tanggal Faktur</div>
+					<div class='dataSummary' id='tanggalOpname'>fdsfdafds</div>
+				</div>
+				<div class='perSummary'>
+					<div class='labelSummary'>Nama Supplier</div>
+					<div class='dataSummary' id='namaPel'>fdsafdsa</div>
+				</div>
+				<div class='perSummary'>
+					<div class='labelSummary'>Barang di Faktur</div>
+					<div class='dataSummary' id='banyakBarang'>fdsafdsa</div>
+				</div>
+				<div class='perSummary'>
+					<div class='labelSummary'>Sub Total</div>
+					<div class='dataSummary' id='subTotal'>Rp 0</div>
+				</div>	
+				<div class='perSummary'>
+					<div class='labelSummary'>Tambahan</div>
+					<div class='dataSummary' id='tambahan'>fdsafdsa</div>
+				</div>	
+				<div class='perSummary'>
+					<div class='labelSummary'>Potongan</div>
+					<div class='dataSummary' id='potongan'>fdsafdsa</div>
+				</div>	
+				<div class='perSummary'>
+					<div class='labelSummary'>Grand Total</div>
+					<div class='dataSummary' id='grandtotal'>Rp 0</div>
+				</div>	
+			</div>
+		</div>
+		<div class='wrapperSimpan' id='ws1'>
+			<div class='wrapKiri'>
+				<div class='buttonNya' id='active' onclick='simpanFaktur()' >
+					Simpan Faktur
+				</div>
+			</div>
+			<div class='wrapKanan'>
+				<div class='reqdanloading'>
+					<div class='wrapReqs' id='simpan1'>
+						<div class='perReqs' id='req1'>
+							1. Memilih Tanggal Faktur
+						</div>
+						<div class='perReqs' id='req2'>
+							2. Minimal terdapat 1 Barang di Faktur
+						</div>
+						<div class='perReqs' id='req3'>
+							3. Harga Beli masing-masing barang minimal Rp 1
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='wrapperSimpan' id='ws2'>
+			<div id='simpanlho1'>
+				<div class='textSimpanYakin'>Yakin untuk menyimpan Faktur Beli ? </div>
+				<div class='buttonNya' id='active' onclick='userConfirmPilihButtonSimpanFaktur()' >
+						<div class='urutan' id='urut0'></div>
+					Yakin
+				</div>
+				<div class='buttonNya' id='active' onclick='userConfirmPilihButtonTidakSimpanFaktur()' >
+						<div class='urutan' id='urut1'></div>
+					Tidak
+				</div>
+			</div>
+			<div id='simpanlho2'>
+				<div class='wrapLoading' id='simpan2'>
+					<div class='text'>Harap Menunggu...</div>
+					<div class='timer'></div>
+				</div>
+			</div>				
+		</div>
+	</div>
+	<div class='subPage' id='subPage1'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+			</div>
+			<div> <input id='inputTanggal' type='date' onchange='setTanggalFaktur(this.value)' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>
+				<div>Faktur Beli untuk Tanggal : </div>
+				<div class='textTanggal' id='textTanggal'></div>
+				<div class='buttonNya' id='active' onclick='setAwalSubPage()' >
+					Selesai
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage2'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Cari Nama Supplier : 
+			</div>
+			<div> <input id='inputNamaPelanggan' type='text' placeholder='Masukan Nama Supplier' onkeyup='keyUpInputNamaPelanggan()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>Masukan Nama Supplier pada Kotak Cari Nama Supplier</div>
+		</div>
+		<div class='isi' id='pengumuman2'>
+			<div class='textPengumuman'>PERHATIAN !!! <br/>Anda sudah pernah memilih Supplier.<br/>Data Barang akan di reset ulang apabila anda memilih Supplier baru</div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Pelanggan  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage3'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Yakin untuk menambahkan Supplier dengan data berikut ? 
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Supplier  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier Baru</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='wrapButtonNya'>
+					<div id='buatButtonHehe'>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonTambahPelanggan(0)' onmouseover='userPilihButtonTambahPelanggan(0)'>
+								<div class='urutanNya' id='urutan0'></div>
+								Yakin
+							</div>
+						</div>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonTambahPelanggan(1)' onmouseover='userPilihButtonTambahPelanggan(1)'>
+								<div class='urutanNya' id='urutan1'></div>
+								Tidak
+							</div>
+						</div>
+					</div>
+					<div id='buatLoadingHehe'>
+						<div class='wrapLoading'>
+							<div class='text'>Harap Menunggu...</div>
+							<div class='timer'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage4'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Cari Nama Barang : 
+			</div>
+			<div> <input id='inputNamaBarang' type='text' placeholder='Masukan Nama Barang' onkeyup='keyUpInputNamaBarang()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>Masukan Nama Barang pada Kotak Cari Nama Barang</div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSat'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Stok Barang</div>
+					<div class='isipenjelasan' id='stokBar'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Modal</div>
+					<div class='isipenjelasan' id='hargaModal'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Disc. Modal</div>
+					<div class='isipenjelasan' id='discModal'></div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage5'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Masukan Data untuk Penjualan Barang berikut
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Satuan Barang</div>
+					<div class='isipenjelasan' id='namaSat'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Stok Barang</div>
+					<div class='isipenjelasan' id='stokBar'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Modal</div>
+					<div class='isipenjelasan' id='hargaModal'></div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Disc. Modal</div>
+					<div class='isipenjelasan' id='discModal'></div>
+				</div>
+				<div class='ilang' id='nsKecil'></div>
+				<div class='ilang' id='nsBesar'></div>
+				<div class='ilang' id='rsKecil'></div>
+				<div class='ilang' id='rsBesar'></div>
+				<div class='ilang' id='idBar'></div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='dataBuatUserIsi' id='dataUserIsi'>
+					<div class='buatQty'>
+						<div class='contoh'>
+							<div class='contohKiri'>Contoh Qty Besar : 50</div>
+							<div class='contohKanan'>Contoh Qty Kecil : 40000</div>
+						</div>
+						<div class='isianQty'>
+							<div class='isianQtyBesar'>
+								Qty Besar<input class='qtyNya' id='inputQtyBesar' onkeyup='gantiQtyBesar()' />
+								<div class='textQtyNya' id='textQtyBesar'>20 Dus</div>
+							</div>
+							<div class='isianQtyKecil'>
+								Qty Kecil <input class='qtyNya' id='inputQtyKecil' onkeyup='gantiQtyKecil()' />
+								<div class='textQtyNya' id='textQtyKecil'>5</div>
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaDisc'>
+						<div class='contoh'>
+							<div class='contohKiri'>Contoh Harga Beli : 100000 </div>
+							<div class='contohKanan'>Contoh Discount Beli : 5.5 </div>
+						</div>
+						<div class='isianHargaDisc'>
+							<div class='isianHargaJual'>
+								Harga<input class='hargaNya' id='inputHargaJual' onkeyup='gantiHargaJual()' />
+								<div class='textQtyNya' id='textHargaJual'>Rp 0</div>
+							</div>
+							<div class='isianDiscount'>
+								Discount <input class='discNya' id='inputDiscJual' onkeyup='setTotalSekarang()' />
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaDisc'>
+						<div class='isianHargaDisc'>
+							<div class='isianPilihan1'>
+								<input type='radio' id='pilsatuanbesar' name='satuanNya' onchange='setTotalSekarang()' />
+								<span><label for='pilsatuanbesar' id='textNamaSatuanBesar'>Dus</label></span>		
+							</div>
+							<div class='isianPilihan2'>
+								<input type='radio' id='pilsatuankecil' name='satuanNya' onchange='setTotalSekarang()' />
+								<span><label for='pilsatuankecil' id='textNamaSatuanKecil'>Pcs</label></span>
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaTotal'>
+						<div class='isianHargaDisc'>
+							<div class='buatTotal'>
+								<div id='totalNyaJual'></div>
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaTotal'>
+						<div class='wrapButtonNya'>
+							<div class='buttonNya' onclick='userSimpanDetailBerikut()' id='active'>
+								<div class='urutanNya' id='urutan0'></div>
+								Simpan Detail
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='dataBuatUserIsi' id='dataLoading'>
+					<div class='wrapLoading'>
+						<div class='text'>Sistem sedang mencoba untuk mengambil data penjualan lama untuk barang berikut</div>
+						<div class='text'>Harap Menunggu...</div>
+						<div class='timer'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage6'>
+		<div class='headerAtasNya'>
+			<div class='buatSearchUrutanNya'>
+				<span class='textNyaDoank'>
+					Cari No. Urut Faktur Beli
+				</span>
+				<input type='text' id='inputSearchUrutan' onkeyup='keyUpSearchUrutanCekFaktur(event)' />
+			</div>
+			<div class='buatWrapperUrutan'>
+				<div class='kiridalemNya'>No. Urut Perlu di Cek</div>
+				<div class='dalemNya' id='wrapperPerDivManage'>
+					<div class='perDivManage'>100</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>100</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>1</div>
+					<div class='perDivManage'>100</div>
+				</div>
+			</div>
+		</div>
+		<div class='buatDataCekOpname'>
+			<div class='headerWrapperDataCekOpname'>
+				<div class='noBarang'>No. </div>
+				<div class='namaBarang'>Nama Barang</div>
+				<div class='namaSatuan'>Quantity Beli</div>
+				<div class='namaSupplier'>Harga Beli</div>
+				<div class='stokAwal'>Disc.</div>
+				<div class='stokAkhir'>Total</div>
+			</div>
+			<div id='wrapperDataCekOpname'>
+				
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage7'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Pilih Aksi untuk Data Barang Faktur dengan No. Urut : <span id='noUrutTerpilih'></span>
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang Faktur  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Quantity Jual</div>
+					<div class='isipenjelasan' id='qtyJual'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Jual</div>
+					<div class='isipenjelasan' id='hargaJual'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Discount Jual</div>
+					<div class='isipenjelasan' id='discJual'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Total</div>
+					<div class='isipenjelasan' id='totalJual'>Hahay</div>
+				</div>
+				<div class='hidden' id='idBar'></div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='wrapButtonNya'>
+					<div id='buatButtonHehe'>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonAksiCekFaktur(0)' onmouseover='userPilihButtonAksiCekFaktur(0)'>
+								<div class='urutanNya' id='urutan0'></div>
+								Hapus Data
+							</div>
+						</div>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonAksiCekFaktur(1)' onmouseover='userPilihButtonAksiCekFaktur(1)'>
+								<div class='urutanNya' id='urutan1'></div>
+								Ubah Data
+							</div>
+						</div>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonAksiCekFaktur(2)' onmouseover='userPilihButtonAksiCekFaktur(2)'>
+								<div class='urutanNya' id='urutan2'></div>
+								Kembali
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage8'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Ubah Data untuk Penjualan Barang berikut
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div class='dataBuatUserIsi' id='dataLoading'>
+					<div class='wrapLoading'>
+						<div class='text'>Harap Menunggu...</div>
+						<div class='timer'></div>
+					</div>
+				</div>
+				<div id='dataKiri'>
+					<div id='textDataPenjelasanBarang'>
+						Data Barang  
+					</div>
+					<div class='perPenjelasan'>
+						<div class='text'>Nama Barang</div>
+						<div class='isipenjelasan' id='namaBar'>Hahay</div>
+					</div>
+					<div class='perPenjelasan'>
+						<div class='text'>Nama Supplier</div>
+						<div class='isipenjelasan' id='namaSup'></div>
+					</div>
+					<div class='perPenjelasan'>
+						<div class='text'>Satuan Barang</div>
+						<div class='isipenjelasan' id='namaSat'></div>
+					</div>
+					<div class='perPenjelasan'>
+						<div class='text'>Stok Barang</div>
+						<div class='isipenjelasan' id='stokBar'></div>
+					</div>
+					<div class='perPenjelasan'>
+						<div class='text'>Harga Modal</div>
+						<div class='isipenjelasan' id='hargaModal'></div>
+					</div>
+					<div class='perPenjelasan'>
+						<div class='text'>Disc. Modal</div>
+						<div class='isipenjelasan' id='discModal'></div>
+					</div>
+					<div class='ilang' id='nsKecil'></div>
+					<div class='ilang' id='nsBesar'></div>
+					<div class='ilang' id='rsKecil'></div>
+					<div class='ilang' id='rsBesar'></div>
+					<div class='ilang' id='idBar'></div>
+					<div class='ilang' id='urutanDalamArray'></div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='dataBuatUserIsi' id='dataUserIsi'>
+					<div class='buatQty'>
+						<div class='contoh'>
+							<div class='contohKiri'>Contoh Qty Besar : 50</div>
+							<div class='contohKanan'>Contoh Qty Kecil : 40000</div>
+						</div>
+						<div class='isianQty'>
+							<div class='isianQtyBesar'>
+								Qty Besar<input class='qtyNya' id='inputQtyBesar' onkeyup='gantiQtyBesar()' />
+								<div class='textQtyNya' id='textQtyBesar'>20 Dus</div>
+							</div>
+							<div class='isianQtyKecil'>
+								Qty Kecil <input class='qtyNya' id='inputQtyKecil' onkeyup='gantiQtyKecil()' />
+								<div class='textQtyNya' id='textQtyKecil'>5</div>
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaDisc'>
+						<div class='contoh'>
+							<div class='contohKiri'>Contoh Harga Beli : 100000 </div>
+							<div class='contohKanan'>Contoh Discount Beli : 5.5 </div>
+						</div>
+						<div class='isianHargaDisc'>
+							<div class='isianHargaJual'>
+								Harga<input class='hargaNya' id='inputHargaJual' onkeyup='gantiHargaJual()' />
+								<div class='textQtyNya' id='textHargaJual'>Rp 0</div>
+							</div>
+							<div class='isianDiscount'>
+								Discount <input class='discNya' id='inputDiscJual' onkeyup='setTotalSekarang()' />
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaDisc'>
+						<div class='isianHargaDisc'>
+							<div class='isianPilihan1'>
+								<input type='radio' id='pilsatuanbesar' name='satuanNya' onchange='setTotalSekarang()' />
+								<span><label for='pilsatuanbesar' id='textNamaSatuanBesar'>Dus</label></span>		
+							</div>
+							<div class='isianPilihan2'>
+								<input type='radio' id='pilsatuankecil' name='satuanNya' onchange='setTotalSekarang()' />
+								<span><label for='pilsatuankecil' id='textNamaSatuanKecil'>Pcs</label></span>
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaTotal'>
+						<div class='isianHargaDisc'>
+							<div class='buatTotal'>
+								<div id='totalNyaJual'></div>
+							</div>
+						</div>
+					</div>
+					<div class='buatHargaTotal'>
+						<div class='wrapButtonNya'>
+							<div class='buttonNya' onclick='userUbahDetailBerikut()' id='active'>
+								<div class='urutanNya' id='urutan0'></div>
+								Simpan Perubahan
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='dataBuatUserIsi' id='dataLoading2'>
+					<div class='wrapLoading'>
+						<div class='text'>Harap Menunggu...</div>
+						<div class='timer'></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage9'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Hapus Data Barang Faktur dengan No. Urut : <span id='noUrutTerpilih'></span> ? 
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang Faktur  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Quantity Jual</div>
+					<div class='isipenjelasan' id='qtyJual'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Harga Jual</div>
+					<div class='isipenjelasan' id='hargaJual'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Discount Jual</div>
+					<div class='isipenjelasan' id='discJual'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Total</div>
+					<div class='isipenjelasan' id='totalJual'>Hahay</div>
+				</div>
+				<div class='hidden' id='idBar'></div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='wrapButtonNya'>
+					<div id='buatButtonHehe'>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonHapusData(0)' onmouseover='userPilihButtonHapusData(0)'>
+								<div class='urutanNya' id='urutan0'></div>
+								Yakin
+							</div>
+						</div>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonHapusData(1)' onmouseover='userPilihButtonHapusData(1)'>
+								<div class='urutanNya' id='urutan1'></div>
+								Tidak
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage10'>
+		<div class='wrapperBiayaLain'>
+			<div class='text'>Biaya Lain</div>
+			<div class='buatTambahan'>
+				<div class='title'>Biaya Tambahan</div>
+				<div class='isian'>
+					<div class='namaBiaya'>
+						<div class='labelKiri'>Nama Biaya : </div>
+						<div class='inputKanan'><input type='text' id='namaTambahan' value='Ongkos Kirim'/></div>
+					</div>
+					<div class='nilaiBiaya'>
+						<div class='labelKiri'>Nilai Biaya : </div>
+						<div class='inputKanan'><input type='text' id='nilaiTambahan' value='0' onkeyup='setTextBiayaTambahan()'/></div>
+					</div>
+					<div class='textNya' id='textTambahan'>
+					</div>
+				</div>
+			</div>
+			<div class='buatPotongan'>
+				<div class='title'>Biaya Potongan</div>
+				<div class='isian'>
+					<div class='namaBiaya'>
+						<div class='labelKiri'>Nama Biaya : </div>
+						<div class='inputKanan'><input type='text' id='namaPotongan' value='Discount'/></div>
+					</div>
+					<div class='nilaiBiaya'>
+						<div class='labelKiri'>Nilai Biaya : </div>
+						<div class='inputKanan'><input type='text' id='nilaiPotongan' value='0' onkeyup='setTextBiayaPotongan()'/></div>
+					</div>
+					<div class='textNya' id='textPotongan'>
+					</div>
+				</div>
+			</div>
+			<div id='wrapBot'>
+				<!-- <div class='wrapTotal'>
+					Total Biaya Lain : Rp. 2.000.000,-
+				</div> -->
+				<div class='buttonNya' id='active' onclick='simpanBiayaLain()' >
+					Simpan Biaya Lain
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class='subPage' id='subPage11'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Cari Ratio Satuan untuk Barang Baru : 
+			</div>
+			<div><input id='inputRatioSatuan' type='text' placeholder='Masukan Ratio Satuan' onkeyup='keyUpInputRatioSatuan()' /></div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>Masukan Ratio Satuan pada Kotak Cari Ratio Satuan <br/><br/>Untuk Barang : <span class='merahmerah' id='namaBar'></span><br/>Dengan Supplier : <span class='merahmerah' id='namaSup'></span></div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Ratio Satuan  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Ratio Satuan</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage12'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Yakin untuk menambahkan Barang dengan data berikut ? 
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang Baru  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang Baru</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Ratio Satuan</div>
+					<div class='isipenjelasan' id='namaRatSat'>Hahay</div>
+				</div>
+				<div class='hiddennya' id='idRatSat'></div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='wrapButtonNya'>
+					<div id='buatButtonHehe'>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonTambahBarang(0)' onmouseover='userPilihButtonTambahBarang(0)'>
+								<div class='urutanNya' id='urutan0'></div>
+								Yakin
+							</div>
+						</div>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonTambahBarang(1)' onmouseover='userPilihButtonTambahBarang(1)'>
+								<div class='urutanNya' id='urutan1'></div>
+								Tidak
+							</div>
+						</div>
+					</div>
+					<div id='buatLoadingHehe'>
+						<div class='wrapLoading'>
+							<div class='text'>Harap Menunggu...</div>
+							<div class='timer'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage13'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Penambahan Nama Ratio Satuan untuk Barang Baru
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Barang Baru  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang Baru</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'>Hahay</div>
+				</div>
+			
+			</div>
+			<div id='wrapperBarang'>
+				<div class='isianRSatuan'>
+					<div>
+						<input type='text' id='nilaisatbesar' onkeyup='keyUpGantiRatioSatuanBesar()' placeholder='Ratio Besar'/>
+						<select id='namasatbesar' class='combo' onchange='changeNamaSatuanNya()'>
+							<option>Dus</option>
+						</select>
+						<span class='akeong'>@</span>
+						<input type='text' id='nilaisatkecil' onkeyup='keyUpGantiRatioSatuanKecil()' placeholder='Ratio Kecil'/>
+						<select id='namasatkecil' class='combo' onchange='changeNamaSatuanNya()'>
+							<option>Lusin</option>
+						</select>
+					</div>
+					<div class='wrapTextKet'>
+						<div id='ketSatBesar'>1</div>
+						<div id='ketSatKecil'>4</div>
+					</div>
+				</div>
+				<div class='wrapLagi'>
+					<div id='namaRatSat'></div>
+				</div>
+				<div class='wrapButtonNya'>
+					<div id='buatButtonHehe'>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='setKonfirmasiTambahRatioSatuanSubPage()' id='active'>
+								<div class='urutanNya' id='urutan0'></div>
+								Simpan
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='subPage' id='subPage14'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Yakin untuk menambahkan data berikut ? 
+			</div>
+		</div>
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Baru  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Barang Baru</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaSup'>Hahay</div>
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Ratio Satuan Baru</div>
+					<div class='isipenjelasan' id='namaRatSat'>Hahay</div>
+				</div>
+				<div class='hiddennya' id='idRatSat'></div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='wrapButtonNya'>
+					<div id='buatButtonHehe'>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonTambahRatioSatuan(0)' onmouseover='userPilihButtonTambahRatioSatuan(0)'>
+								<div class='urutanNya' id='urutan0'></div>
+								Yakin
+							</div>
+						</div>
+						<div class='wlagi'>
+							<div class='buttonNya' onclick='userConfirmPilihButtonTambahRatioSatuan(1)' onmouseover='userPilihButtonTambahRatioSatuan(1)'>
+								<div class='urutanNya' id='urutan1'></div>
+								Tidak
+							</div>
+						</div>
+					</div>
+					<div id='buatLoadingHehe'>
+						<div class='wrapLoading'>
+							<div class='text'>Harap Menunggu...</div>
+							<div class='timer'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,22 @@
+<div class='wrapperError'>
+	<div class='wrapperTengahLayar'>
+		<div class='wrapLagi'>
+			<div class='wrapLagiLagi'>
+				
+				<div class='wrapperText'>
+					<div class='judulPopUp'>Error</div>
+
+					<div class='textPopUp' id='textErrorNya'>
+						
+					</div>
+				</div>
+
+				<div class='wrapperButton'>
+					<div class='buttonNya' onclick='setPopUp_Error(false)'>Saya Mengerti</div>
+				</div>
+
+			</div>
+		</div>	
+	</div>
+</div>
+<div class='panelTransparan'></div>

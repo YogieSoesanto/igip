@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+		<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+		<script src='<?php echo asset("/js/spin.min.js"); ?>'></script>
+		<script type='text/javascript' src='/js/jquery.mousewheel.js'></script>
+		<script type='text/javascript' src='/js/debounce.js'></script>
+		<script type='text/javascript' src='/js/fungsionalitas.js'></script>
+		<script src='<?php echo asset("/js/main/test/managegallery.js"); ?>'></script>
+
+		<script>
+			var GFC_IdMenu = '<?php echo $idMenu; ?>'; //Global From Controller
+		</script>
+		<script>
+			$(document).ready(function(){
+
+				initPage();
+
+			});	
+		</script>
+		<!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+		<link rel='stylesheet' href='<?php echo asset("/css/main/test/managegallery.css"); ?>' />
+	</head>
+	<body>
+		<div class='wrapBody'>
+			<div class='kiri'>
+				
+				<div class='kiriAtas'>
+				
+					<div class='buatPerGambars' id='buatPerGambars'>
+						<div class='perGambars'>
+							<img class='cthGambar'/>
+						</div>
+					</div>
+
+				</div>
+
+				<div class='kiriBawah'>
+					<div class='wrapperScrollThumbnail'>
+						<div class='buatThumbnail' id='buatThumbnail'>
+							
+							<?php for($i = 0 ; $i < 9 ; $i++): ?>
+							<div class='perThumbnail' onclick='clickThumbnailBerikut(this)'>	
+								<img src='<?php echo asset("/asset/testgambar"); ?>/<?php echo $i; ?>.jpg'/>
+								<div class='hiddenNumber'><?php echo $i; ?></div>
+							</div>
+							<?php endfor; ?>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class='kanan'>
+				<div class='rightPage'>
+					<div class='wrapperButtonBack'>
+						<div class='buttonFixedNya' id='back'>
+							<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+							<div class='textNya'>Kembali</div>
+						</div>
+					</div>
+					<div class='namaMenu'>
+						Ayam Bakar
+					</div>
+					<div class='urutanGbrTerpilih'>
+						<span>Urutan Terpilih :</span> <span id='textUrutanTerpilih'>10</span>
+					</div>
+
+					<div class='wrapperNavigasiGallery'>
+						<div id='buttonPrev'>
+							&larr;
+						</div>
+						<div id='buttonNext'>
+							&rarr;
+						</div>
+					</div>
+					<div class='wrapperButton'>
+						<div class='buttonNya'>
+							Tambah Gambar
+						</div>
+						<div class='buttonNya'>
+							Hapus Gambar
+						</div>
+						<div class='buttonNya'>
+							Set Gambar Utama
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

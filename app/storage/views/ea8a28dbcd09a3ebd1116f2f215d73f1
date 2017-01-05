@@ -1,0 +1,6 @@
+<?php $__env->startSection('mainBody'); ?>
+	<p>testing ajah</p>
+	<h2><?php echo $inidarimanahayo; ?></h2>
+	<h1><?php echo $inidarimanahayo; ?></h1>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('template_testcase', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

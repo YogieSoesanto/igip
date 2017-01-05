@@ -1,0 +1,71 @@
+<div class='wrapperUI_addItemKT'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Add Item Kategori Tambahan
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<div id='additemkt_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNama'>
+						<input type='hidden' id='additemkt_idKT' />
+						<input type='hidden' id='additemkt_idMenu' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><input id='additemkt_nama' /></div>
+					</div>
+
+					<div class='wrapperKapitalisasiNama'>
+						<span id='additemkt_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+
+					<div class='wrapperHarga'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><input id='additemkt_harga' /></div>
+					</div>
+
+
+			</div>
+
+			<div class='wrapperSuggestion'>
+				
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Usulan Nama Item Kategori Tambahan
+					</div>
+				</div>
+
+				<div class='wrapperNyaSuggestion'>
+					<div id='additemkt_wrapperSuggestion'>
+							
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

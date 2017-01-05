@@ -1,0 +1,330 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/historyfakturbeli/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/historyfakturbeli/main.css"); ?>' />
+	<script>
+		var tipeHFJ = "<?php echo $tipeHFJ; ?>";
+		var param = "<?php echo $param; ?>";
+	</script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+	aturDataFaktur();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='textField'>
+			History Faktur Beli untuk
+			<span id='judulF'></span>
+		</div>
+		<div class='headerWrapperDataHFaktur'>
+			<div class='idF'>ID</div>
+			<div class='tgl'>Tanggal/Jam </div>
+			<div class='namaCust'>Nama Supplier</div>
+
+			<div class='jmlBarang'>Banyak Barang</div>
+			<div class='subTotal'>Sub Total</div>
+			<div class='grandTotal'>Grand Total</div>
+			
+			<div class='idDelete'>Terhapus</div>
+		</div>
+		<div class='isi' id='loadingAwal'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+		<div class='isi' id='datanotfound'>
+			<div class='wrapLoading'>
+				<div class='text'>Data Tidak Ditemukan</div>
+			</div>
+		</div>
+		<div class='isi' id='dataNya'>
+			
+		</div>
+	</div>
+	<div class='subPage' id='subPage1'>
+		<div class='textField'>
+			Lihat Isi History Faktur Beli Berikut ?
+		</div>
+		<div id='dataPenjelasanFaktur'>
+			<div id='textDataPenjelasanFaktur'>
+				Data Faktur Beli
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Id Faktur</div>
+				<div class='isipenjelasan' id='idF'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Tanggal/Jam</div>
+				<div class='isipenjelasan' id='tgl'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Nama Supplier</div>
+				<div class='isipenjelasan' id='namaCust'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Banyak Barang</div>
+				<div class='isipenjelasan' id='bykBarang'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Sub Total</div>
+				<div class='isipenjelasan' id='subTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Grand Total</div>
+				<div class='isipenjelasan' id='grandTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Terhapus</div>
+				<div class='isipenjelasan' id='isDelete'></div>
+			</div>
+		</div>
+		<div class='wrapButtonNya'>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonLihat()' onmouseover='userPilihButtonAksiSubPage(0)'>
+					<div class='urutanNya' id='urutan0'></div>
+					Lihat Sekarang
+				</div>
+			</div>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonCancel()' onmouseover='userPilihButtonAksiSubPage(1)'>
+					<div class='urutanNya' id='urutan1'></div>
+					Kembali
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='subPage' id='subPage2'>
+		<div class='textField'>
+			Print Faktur Beli Berikut ?
+		</div>
+		<div id='dataPenjelasanFaktur'>
+			<div id='textDataPenjelasanFaktur'>
+				Data Faktur Beli
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Id Faktur</div>
+				<div class='isipenjelasan' id='idF'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Tanggal/Jam</div>
+				<div class='isipenjelasan' id='tgl'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Nama Supplier</div>
+				<div class='isipenjelasan' id='namaCust'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Banyak Barang</div>
+				<div class='isipenjelasan' id='bykBarang'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Sub Total</div>
+				<div class='isipenjelasan' id='subTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Grand Total</div>
+				<div class='isipenjelasan' id='grandTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Terhapus</div>
+				<div class='isipenjelasan' id='isDelete'></div>
+			</div>
+		</div>
+		<div class='wrapButtonNya'>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonPrint()' onmouseover='userPilihButtonAksiSubPage(0)'>
+					<div class='urutanNya' id='urutan0'></div>
+					Print Sekarang
+				</div>
+			</div>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonCancel()' onmouseover='userPilihButtonAksiSubPage(1)'>
+					<div class='urutanNya' id='urutan1'></div>
+					Kembali
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class='subPage' id='subPage3'>
+		<div class='textField'>
+			Print Surat Jalan Untuk Faktur Beli Berikut ?
+		</div>
+		<div id='dataPenjelasanFaktur'>
+			<div id='textDataPenjelasanFaktur'>
+				Data Faktur Beli
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Id Faktur</div>
+				<div class='isipenjelasan' id='idF'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Tanggal/Jam</div>
+				<div class='isipenjelasan' id='tgl'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Nama Supplier</div>
+				<div class='isipenjelasan' id='namaCust'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Banyak Barang</div>
+				<div class='isipenjelasan' id='bykBarang'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Sub Total</div>
+				<div class='isipenjelasan' id='subTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Grand Total</div>
+				<div class='isipenjelasan' id='grandTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Terhapus</div>
+				<div class='isipenjelasan' id='isDelete'></div>
+			</div>
+		</div>
+		<div class='wrapButtonNya'>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonPrintSJ()' onmouseover='userPilihButtonAksiSubPage(0)'>
+					<div class='urutanNya' id='urutan0'></div>
+					Print Surat Jalan 
+					Sekarang
+				</div>
+			</div>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonCancel()' onmouseover='userPilihButtonAksiSubPage(1)'>
+					<div class='urutanNya' id='urutan1'></div>
+					Kembali
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class='subPage' id='subPage4'>
+		<div class='textField'>
+			Buat Duplikat Untuk Faktur Beli Berikut ?
+		</div>
+		<div id='dataPenjelasanFaktur'>
+			<div id='textDataPenjelasanFaktur'>
+				Data Faktur Beli
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Id Faktur</div>
+				<div class='isipenjelasan' id='idF'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Tanggal/Jam</div>
+				<div class='isipenjelasan' id='tgl'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Nama Supplier</div>
+				<div class='isipenjelasan' id='namaCust'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Banyak Barang</div>
+				<div class='isipenjelasan' id='bykBarang'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Sub Total</div>
+				<div class='isipenjelasan' id='subTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Grand Total</div>
+				<div class='isipenjelasan' id='grandTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Terhapus</div>
+				<div class='isipenjelasan' id='isDelete'></div>
+			</div>
+		</div>
+		<div class='wrapButtonNya'>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonDuplikat()' onmouseover='userPilihButtonAksiSubPage(0)'>
+					<div class='urutanNya' id='urutan0'></div>
+					Buat Duplikat Sekarang
+				</div>
+			</div>
+			<div class='wlagi'>
+				<div class='buttonNya' onclick='userConfirmPilihButtonCancel()' onmouseover='userPilihButtonAksiSubPage(1)'>
+					<div class='urutanNya' id='urutan1'></div>
+					Kembali
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class='subPage' id='subPage5'>
+		<div class='textField'>
+			Hapus Faktur Beli Berikut ?
+		</div>
+		<div id='dataPenjelasanFaktur'>
+			<div id='textDataPenjelasanFaktur'>
+				Data Faktur Beli
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Id Faktur</div>
+				<div class='isipenjelasan' id='idF'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Tanggal/Jam</div>
+				<div class='isipenjelasan' id='tgl'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Nama Supplier</div>
+				<div class='isipenjelasan' id='namaCust'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Banyak Barang</div>
+				<div class='isipenjelasan' id='bykBarang'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Sub Total</div>
+				<div class='isipenjelasan' id='subTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Grand Total</div>
+				<div class='isipenjelasan' id='grandTotal'></div>
+			</div>
+			<div class='perPenjelasan'>
+				<div class='text'>Terhapus</div>
+				<div class='isipenjelasan' id='isDelete'></div>
+			</div>
+		</div>
+		
+		<div class='wrapButtonNya'>
+			<div class='isi' id='loadingDelete'>
+				<div class='wrapLoading'>
+					<div class='text'>Harap Menunggu...</div>
+					<div class='timer'></div>
+				</div>
+			</div>
+			<div id='wrapIsiBtn'>
+				<div id='wrapPass'>
+					<input type='password' id='passNya' class='passNya' placeholder='Masukan Password'/>
+				</div>
+				<div class='wlagi'>
+					<div class='buttonNya' onclick='userConfirmPilihButtonHapus()' onmouseover='userPilihButtonAksiSubPage(0)'>
+						<div class='urutanNya' id='urutan0'></div>
+						Hapus Sekarang
+					</div>
+				</div>
+				<div class='wlagi'>
+					<div class='buttonNya' onclick='userConfirmPilihButtonCancel()' onmouseover='userPilihButtonAksiSubPage(1)'>
+						<div class='urutanNya' id='urutan1'></div>
+						Kembali
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

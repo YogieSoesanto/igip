@@ -1,0 +1,39 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/ptfjual/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/ptopname/main.css"); ?>' />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+			</div>
+			<div> <input id='inputTanggal' type='date' onchange='gantiTanggal()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>
+				<div>Data History Faktur Jual</div>
+				<div class='textTanggal' id='textTanggal'></div>
+
+				<div id='loading'>
+					<div class='wrapLoading'>
+						<div class='text'>Sistem sedang mengecek Data Faktur Jual pada tanggal berikut
+							<br/>
+							Harap Menunggu...</div>
+						<div class='timer'></div>
+					</div>
+				</div>
+				<div id='linkHasil'>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,42 @@
+<html>
+<head>
+	<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+	<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+	<script src='<?php echo asset("/js/fungsionalitas.js"); ?>'></script>
+	<script src='<?php echo asset("/js/templatelayout.js"); ?>'></script>
+
+	<link rel='stylesheet' href='<?php echo asset("/css/templatelayout.css"); ?>' />
+	<link rel='stylesheet' href='<?php echo asset("/css/loading.css"); ?>' />
+	<?php echo $__env->yieldContent('fileExt'); ?>
+	<script>
+		$(document).ready(function(){
+			<?php echo $__env->yieldContent('afterReady'); ?>
+		});
+	</script>
+</head>
+
+<body onkeyup='onKeyUpBody(event.keyCode)'>
+	<div class='panelKananFixed'>
+		<div id='titlePanelKanan'>
+		</div>
+		<div id='bagianPanelKanan'>
+		</div>
+		<div id='wrapNavigasi'>
+			<div class='perNavigasi' onclick=''>
+				<div class='textNya'></div>
+				<div class='hotkeysNya'></div>
+			</div>
+		</div>
+		<div class='buatHotKeys'>
+			<div class='textHotKeys'>Daftar HotKeys</div>
+			<div id='wrapHotKeys'>
+				<div class='perHotKeys'>esc</div>
+				<div class='perHotKeys'>enter</div>
+			</div>
+		</div>
+	</div>
+	<div class='bodyNya'>
+		<?php echo $__env->yieldContent('bodyNya'); ?>
+	</div>
+</body>
+</html>

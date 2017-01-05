@@ -1,0 +1,84 @@
+<div class='wrapperUI_copyKategoriTambahan2'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Lanjutan Copy Kategori Tambahan
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+			
+			<div class='wrapperAllMenu'>
+				
+				<div id='wrapperAllKate_copyKT' >
+				
+				</div>
+
+			</div>
+
+			<div class='wrapperAksi' id='aksi'>
+			
+				<div class='wrapperTextPerintah'>
+					<div class='title'>Keterangan</div>
+					<div class='anakKeterangan'>
+						<p>Pilih Menu yang sesuai untuk Kategori Tambahan dibawah</p>
+					</div>
+				</div>
+
+				<div class='wrapperButtonAtasBawah'>
+					<div class='title'>Data Kategori Tambahan Baru</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Nama
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_namaKT_copyKT'>KT</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Min Pilih
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_minpilKT_copyKT'>1</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Max Pilih
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_maxpilKT_copyKT'>2</span>
+						</div>
+					</div>
+					<div class='bawahTitle'>
+						<div class='urutanTerpilih'>
+							Max Gratis
+						</div>
+						<div class='wrapperButton'>
+							<span id='dataBaru_maxgratisKT_copyKT'>5</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

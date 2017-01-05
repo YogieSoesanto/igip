@@ -1,0 +1,82 @@
+<div class='wrapperUI_addMenu'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Add Menu
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+					<div class='wrapperParentBefore'>
+						<input type='hidden' id='addmenu_idKMR' />
+						<div id='addmenu_textParentBefore'>-</div>
+					</div>
+
+					<div class='wrapperNama'>
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><input id='addmenu_nama' /></div>
+					</div>
+
+					<div class='wrapperKapitalisasiNama'>
+						<span id='addmenu_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+
+					<div class='wrapperHarga'>
+						<div class='textNya'>Harga</div>
+						<div class='inputNya'><input id='addmenu_harga'></input></div>
+					</div>
+
+					<div class='wrapperReco'>
+						<div class='textNya'>Chef Reco</div>
+						<div class='inputNya'><input type='checkbox' id='addmenu_isreco'></input><label for='addmenu_isreco'>Chef Recommended</label></div>
+					</div>
+
+					<div class='wrapperDesc'>
+						<div class='textNya'>Description</div>
+						<div class='inputNya'><textarea id='addmenu_desc'></textarea></div>
+					</div>
+
+			</div>
+
+			<div class='wrapperKompDasar'>
+				
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Komposisi Dasar Menu
+					</div>
+				</div>
+
+				<div class='wrapperNyaKompDasar'>
+					<span class='itemKompDasar'>
+						<input type='checkbox' id='isCabe_AddMenu'/> <label for='isCabe_AddMenu'>Cabe</label>
+					</span>
+					<span class='itemKompDasar'>
+						<input type='checkbox' id='isBabi_AddMenu'/> <label for='isBabi_AddMenu'>Babi</label>
+					</span>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

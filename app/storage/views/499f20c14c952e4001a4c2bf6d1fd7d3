@@ -1,0 +1,41 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/stokgudang/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/stokgudang/main.css"); ?>' />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+				Print Stok Gudang Hari Ini
+			</div>
+		</div>
+		<div class='isi' id='error1'>
+			<div class='wrapLoading'>
+				Harap Menutup Excel Yang Ada lalu tekan tombol dibawah
+				<br/>
+				<div class='buttonNya' id='active' onclick='ulangPrint()'>Ulang</div>
+			</div>
+		</div>
+		<div class='isi' id='error2'>
+			<div class='wrapLoading'>Semua stok barang di gudang nilainya kosong</div>
+		</div>
+		<div class='isi' id='error3'>
+			<div class='wrapLoading'>
+				Stok Gudang Hari Ini Sudah Siap di Print
+			</div>
+		</div>
+		<div class='isi' id='loading'>
+			<div class='wrapLoading'>
+				<div class='text'>Harap Menunggu...</div>
+				<div class='timer'></div>
+			</div>
+			
+		</div>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

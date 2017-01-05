@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+	<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+	<script src='<?php echo asset("/js/fungsionalitas.js"); ?>'></script>
+	<script src='<?php echo asset("/js/fakturjual/main.js"); ?>'></script>
+	<script src='<?php echo asset("/js/fakturjual/design.js"); ?>'></script>
+	<script src='<?php echo asset("/js/fakturjual/attribute.js"); ?>'></script>
+	<script>
+		$(document).ready(function(){
+
+			/*var nama = "b";
+			getDataBarangByName(nama, function(jsonResult){
+				manageCallBackGDBBN(jsonResult);
+			});*/
+
+			//setTanggal();
+			/*var dataBarangChoosen = new Array("yogie",50,"asdas","gogo");
+			getDataJualBarangByOrangAndBarang(1, 1, function(jsonResult){
+				setLoadingUserConfirmChooseBarang(false);
+				manageCallBackGDJBBOAB(jsonResult, dataBarangChoosen);
+			});	*/
+		});
+	</script>
+</head>
+
+<body>
+<input type='date' id='monyet' onchange='setTanggal(this.value)' />
+<input type='' id='inputNamaBarang' onkeyup='onKeyUpSearchBarang()' />
+</body>
+</html>

@@ -1,0 +1,88 @@
+<?php $__env->startSection('fileExt'); ?>
+	<script src='<?php echo asset("/js/pofbeli/main.js"); ?>'></script>
+	<link rel='stylesheet' href='<?php echo asset("/css/pofbeli/main.css"); ?>' />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('afterReady'); ?>
+	initMainJs();
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='subPage' id='subPage0'>
+		<div class='textField'>
+			<div id='textInputNamaBarang'>
+			</div>
+			<div> <input id='inputNamaBarang' placeholder='Masukan Nama Supplier' type='text' onkeyup='keyUpInputNamaBarang()' />
+			</div>
+		</div>
+		<div class='isi' id='pengumuman'>
+			<div class='textPengumuman'>
+				Pilih Nama Supplier terlebih dahulu
+			</div>
+		</div>
+
+		<div class='isi' id='loadingCariOrang'>
+			<div class='wrapLoading'>
+				<div class='text'>
+					Harap Menunggu...
+				</div>
+				<div class='timer'></div>
+			</div>
+		</div>
+
+		<div class='isi' id='isiBarang'>
+			<div id='dataPenjelasanBarang'>
+				<div id='textDataPenjelasanBarang'>
+					Data Supplier  
+				</div>
+				<div class='perPenjelasan'>
+					<div class='text'>Nama Supplier</div>
+					<div class='isipenjelasan' id='namaBar'>Hahay</div>
+				</div>
+			</div>
+			<div id='wrapperBarang'>
+				<div class='perBarang' id='active'>
+					<div class='urutanDalamWrapper' id='urutanDalamWrapper0'></div>
+					
+					<div class='showNya'>
+						<div class='kiri'>
+							<div id='namakepanjangannya'>BuahBuni</div>
+							<div class='bwhNamaKepanjangan'>
+								<div id='namaSup'>BuahBuni</div>
+								<div id='namaSat'>BuahBuni</div>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class='hiddennya' id='idBar'>1</div>
+					<div class='hiddennya' id='namaBar'>BuahBuni</div>
+					<div class='hiddennya' id='hargaModal'>rphargapersatuanterpakai</div>
+					<div class='hiddennya' id='discModal'>discpersen</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class='isi' id='loadingNgecek'>
+			<div class='textPengumuman'>
+				<div>Data History Faktur Beli Untuk Supplier : </div>
+				<div class='textTanggal' id='textTanggal'></div>
+
+				<div id='loading'>
+					<div class='wrapLoading'>
+						<div class='text'>Sistem sedang mengecek Data Faktur Beli untuk Supplier berikut
+							<br/>
+							Harap Menunggu...</div>
+						<div class='timer'></div>
+					</div>
+				</div>
+				<div id='linkHasil'>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("tl", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

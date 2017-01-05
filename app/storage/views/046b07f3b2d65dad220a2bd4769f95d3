@@ -1,0 +1,111 @@
+<html>
+<head>
+	<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+	<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+	<script src='<?php echo asset("/js/fungsionalitas.js"); ?>'></script>
+	<script src='<?php echo asset("/js/templatelayout.js"); ?>'></script>
+
+	<link rel='stylesheet' href='<?php echo asset("/css/templatelayout.css"); ?>' />
+	<link rel='stylesheet' href='<?php echo asset("/css/loading.css"); ?>' />
+	<link rel='stylesheet' href='<?php echo asset("/css/awal.css"); ?>' />
+	<script>
+		function onKeyUpBody(keyCode){
+			console.log(keyCode);
+			var path = "";
+			if(keyCode == "49"){
+				path = "/fj";
+			}else if(keyCode == "50"){
+				path = "/fb";
+			}else if(keyCode == "51"){
+				path = "/fo";
+			}else if(keyCode == "52"){
+				path = "/sg_p";
+			}else if(keyCode == "53"){
+				path = "/ptm";
+			}else if(keyCode == "54"){
+				path = "/mb";
+			}else if(keyCode == "55"){
+				path = "/phfj";
+			}else if(keyCode == "56"){
+				path = "/phfb";
+			}else if(keyCode == "57"){
+				path = "/mns";
+			}
+			else if(keyCode == "65"){
+				path = "/ptfj";
+			}else if(keyCode == "83"){
+				path = "/pofj";
+			}else if(keyCode == "68"){
+				path = "/ptfb";
+			}else if(keyCode == "70"){
+				path = "/pofb";
+			}else if(keyCode == "71"){
+				path = "/pto";
+			}else if(keyCode == "72"){
+				path = "/mrs";
+			}else if(keyCode == "74"){
+				path = "/ms";
+			}else if(keyCode == "75"){
+				path = "/mc";
+			}
+			else if(keyCode == "113"){
+				path = "/";
+			}
+			if(path != "")
+				window.location = path;
+		}
+	</script>
+	<style>
+	</style>
+</head>
+
+<body onkeyup='onKeyUpBody(event.keyCode)'>
+	<div id='wrapHeader'>
+		Bee Bee Toys
+	</div>
+	<div class='wrapGroup'>
+		<div class='titleGroup'>Faktur Jual</div>
+		<a href="/fj"><div class='hotkey'>1</div><div class='buttonMenu'>Buat Faktur Jual</div></a>
+		<a href='/phfj'><div class='hotkey'>7</div><div class='buttonMenu'>History Faktur Jual Hari Ini</div></a>
+		<a href='/ptfj'><div class='hotkeyhuruf'>A</div><div class='buttonMenu'>History Faktur Jual Berdasarkan Tanggal</div></a>
+		<a href='/pofj'><div class='hotkeyhuruf'>S</div><div class='buttonMenu'>History Faktur Jual Berdasarkan Pelanggan</div></a>
+		<div class='separator'></div>
+	</div>
+	<div class='wrapGroup'>
+		<div class='titleGroup'>Faktur Beli</div>
+		<a href='/fb'><div class='hotkey'>2</div><div class='buttonMenu'>Buat Faktur Beli</div></a>
+		<a href='/phfb'><div class='hotkey'>8</div><div class='buttonMenu'>History Faktur Beli Hari Ini</div></a>
+		<a href='/ptfb'><div class='hotkeyhuruf'>D</div><div class='buttonMenu'>History Faktur Beli Berdasarkan Tanggal</div></a>
+		<a href='/pofb'><div class='hotkeyhuruf'>F</div><div class='buttonMenu'>History Faktur Beli Berdasarkan Supplier</div></a>
+		<div class='separator'></div>
+	</div>
+	<div class='wrapGroup'>
+		<div class='titleGroup' id='fo'>Faktur Opname</div>
+		<a href='/fo'><div class='hotkey'>3</div><div class='buttonMenu'>Buat Faktur Opname</div></a>
+		<a href='/pto'><div class='hotkeyhuruf'>G</div><div class='buttonMenu'>History Opname</div></a>
+		<div class='separator'></div>
+	</div>
+	<div class='wrapGroup'>
+		<div class='titleGroup' id='adm'>Admin</div>
+		<a href='/sg_p'><div class='hotkey'>4</div><div class='buttonMenu'>Print Stok Gudang</div></a>	
+		<a href='/ptm'><div class='hotkey'>5</div><div class='buttonMenu'>History Mutasi Barang</div></a>	
+		<div class='separator'></div>
+	</div>
+	<div class='wrapGroup'>
+		<div class='titleGroup'>Master Barang</div>
+		<a href='/mb'><div class='hotkey'>6</div><div class='buttonMenu'>Master Data Barang</div></a>
+		<a href='/mrs'><div class='hotkeyhuruf'>H</div><div class='buttonMenu'>Master Data Ratio Satuan</div></a>
+		<a href='/mns'><div class='hotkey'>9</div><div class='buttonMenu'>Master Data Nama Satuan</div></a>		
+		<div class='separator'></div>
+	</div>
+	<div class='wrapGroup' id='mo'>
+		<div class='titleGroup'>Master Orang</div>
+		<a href='/ms'><div class='hotkeyhuruf'>J</div><div class='buttonMenu'>Master Data Supplier</div></a>
+		<a href='/mc'><div class='hotkeyhuruf'>K</div><div class='buttonMenu'>Master Data Pelanggan</div></a>
+		<div class='separator'></div>
+	</div>
+	
+
+	
+</body>
+</html>

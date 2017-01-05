@@ -1,0 +1,267 @@
+<?php $__env->startSection('extFile'); ?>
+	<link rel='stylesheet' href='<?php echo asset("css/kalendar/main.css"); ?>'/>
+	<script src='<?php echo asset("/js/kalendar/main.js"); ?>'></script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('aftReady'); ?>
+	var nama = "alamak buset panjang amat namanya hahaha gila dah ini mah";
+	$(".wrapperNama #namaFull").html(nama);
+	$(".wrapperNama #namaShown").html(buatNamaBiarSingkat(nama, 30));
+
+	$(".anakHV").click(function(){
+		$(".anakHV .displayNya").attr("id","");
+		$(this).find(".displayNya").attr("id","active");
+	});
+
+
+	$(".buttonFunctionals .button").click(function(){
+		var idNya = $(this).attr("id");
+		idNya = idNya.substr(3);
+		$(".wrapperData").hide();
+		$(".wrapperPopUp").hide();	
+		$(".wrapperFunctional").hide();
+		$("#popUp" + idNya).show();
+	});
+
+	$(".wrapperPopUp .buttonFixedNya#back").click(function(){
+		$(".wrapperPopUp").hide();
+		$(".wrapperFunctional").show();
+		$("#dataNya").show();
+	});
+
+	$(".wrapperPopUp .isiPopUp .fixKiri .wrapperDay .day").click(function(){
+		
+	});
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('bodyNya'); ?>
+	<div class='wrapperFunctional'>
+		
+		<div class='header'>
+			<div class='wrapperButBack'>
+				<div class='butBack'>
+					<img src='<?php echo asset("asset/fixed/homeadmin.png"); ?>'/>
+					<div class='textHome'>Home</div>
+				</div>
+			</div>
+			<div class='wrapperNama'>
+				<table class='tabTulisanVerti'>
+					<tr>
+						<td>
+							<div class='namaFull' id='namaFull'>
+							</div>
+							<div class='namaShown' id='namaShown'>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class='buttonFunctionals'>
+			<div class='button' id='butHJBN'>
+				<div class='text'>Hari dan Jam Buka Normal</div>
+			</div>
+			<div class='button' id='butTTS'>
+				<div class='text'>Tanggal Tutup Spesial</div>
+			</div>
+			<div class='button' id='butTJBS'>
+				<div class='text'>Tanggal dan Jam Buka Spesial</div>
+			</div>
+			<div class='button' id='butHI'>
+				<div class='text'>Hari Ini</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class='wrapperData' id='dataNya'>
+
+		<div class='wrapperView'>
+
+			<div class='headerView'>
+				<div class='anakHV' id='sv'>
+					<div class='displayNya' id='active'>Summary View</div>
+				</div>
+				<div class='anakHV' id='cv'>
+					<div class='displayNya'>Calendar View</div>
+				</div>
+			</div>
+
+			<div class='wrapperDisplay'>
+				<div class='display' id='dfs'>
+					asd
+				</div>
+
+				<div class='display' id='dfc'>
+					
+				</div>
+			</div>	
+
+		</div>
+
+	</div>
+
+	<div class='wrapperPopUp' id='popUpHJBN' >
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/prev.png'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Hari dan Jam Buka Normal
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/next.png'/></div>
+			</div>
+
+		</div>
+
+		<div class='isiPopUp'>
+			
+			<div class='fixKiri'>
+				
+				<div class='wrapperDay' id='wrapperDay'>
+					
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)">
+							<div class='text'>Senin</div>
+						</div>
+					</div>
+
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)">
+							<div class='text'>Selasa</div>
+						</div>
+					</div>
+
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)">
+							<div class='text'>Rabu</div>
+						</div>
+					</div>
+
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)">
+							<div class='text'>Kamis</div>
+						</div>
+					</div>
+
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)">
+							<div class='text'>Jumat</div>
+						</div>
+					</div>
+
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)">
+							<div class='text'>Sabtu</div>
+						</div>
+					</div>
+
+					<div class='day'>
+						<div class='displayNya' onclick="cekSelected(this)" id='chosen'>
+							<div class='text'>Minggu</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class='makeGroup'>
+					<div class='butMakeGroup' onclick='createGroup(this)'>Make Group</div>
+				</div>
+
+			</div>
+
+			<div class='fixKanan'>
+				<div class='subTitle'>
+					Group Hari dan Jam Buka Normal
+				</div>
+				<div class='wrapGroupNya'>
+					
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class='wrapperPopUp' id='popUpTTS' >
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/prev.png'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Tanggal Tutup Spesial
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/next.png'/></div>
+			</div>
+
+		</div>
+
+		<div class='isiPopUp'>
+			asd
+		</div>
+	</div>
+
+	<div class='wrapperPopUp' id='popUpTJBS' >
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/prev.png'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Tanggal dan Jam Buka Spesial
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/next.png'/></div>
+			</div>
+
+		</div>
+
+		<div class='isiPopUp'>
+			asd
+		</div>
+	</div>
+
+	<div class='wrapperPopUp' id='popUpHI' >
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/prev.png'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Hari Ini
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='http://localhost:8092/asset/fixed/next.png'/></div>
+			</div>
+
+		</div>
+
+		<div class='isiPopUp'>
+			asd
+		</div>
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('kalendar.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

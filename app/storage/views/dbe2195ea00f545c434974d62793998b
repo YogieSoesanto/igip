@@ -1,0 +1,433 @@
+<html>
+	<head>
+		<script src='<?php echo asset("/js/jquery.js"); ?>'></script>
+		<script src='<?php echo asset("/js/jquery-ui.js"); ?>'></script>
+		<script src='<?php echo asset("/js/spin.min.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/managemenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/drawmanagemenulegend.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/drawmanagemenudata.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/objectmanagemenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/buttonmanagemenu.js"); ?>'></script>
+		<script type='text/javascript' src='/js/jquery.mousewheel.js'></script>
+		<script type='text/javascript' src='/js/debounce.js'></script>
+		<script type='text/javascript' src='/js/fungsionalitas.js'></script>
+
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/addkategori.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/editkategori.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/deletekategori.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/orderkategori.js"); ?>'></script>
+
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/addmenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/editmenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/deletemenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/ordermenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/copymenu.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/copymenu2.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/managekomposisi.js"); ?>'></script>
+		
+
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/addkategoritambahan.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/editkategoritambahan.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/deletekategoritambahan.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/copykt.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/copykt2.js"); ?>'></script>
+
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/additemkategoritambahan.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/edititemkategoritambahan.js"); ?>'></script>
+		<script src='<?php echo asset("/js/main/test/subpagemanagemenu/deleteitemkategoritambahan.js"); ?>'></script>
+
+		<script>
+			var GFC_IdResto = '<?php echo $idResto; ?>'; //Global From Controller
+			var pathGambarExpand = '<?php echo asset("/asset/fixed/expandBaru.png"); ?>';
+			var pathGambarMinimize = '<?php echo asset("/asset/fixed/minimizeBaru.png"); ?>';
+			var pathIsRecomended = '<?php echo asset("/asset/like.png"); ?>';
+			var pathGambarDeleteKomp = '<?php echo asset("/asset/fixed/deleteB.png"); ?>';
+			var pathGambarUndoKomp = '<?php echo asset("/asset/fixed/undo.png"); ?>';
+		</script>
+		<script>
+			$(document).ready(function(){
+
+				$("body").keyup(function(event){
+				  	if(event.keyCode == "118"){
+				  		//setButton(1);
+				  		prArrKMR();
+					}
+					else if(event.keyCode == "119"){
+						drawTheData();
+					}
+
+				});
+
+				initPage();
+
+			});	
+		</script>
+		<!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+		<link rel='stylesheet' href='<?php echo asset("/css/main/test/managemenu.css"); ?>' />
+		<link rel='stylesheet' href='<?php echo asset("/css/main/test/managemenusubpage.css"); ?>' />
+		<link rel='stylesheet' href='<?php echo asset("/css/main/test/popupsubpage.css"); ?>' />
+	</head>
+	<body>
+		<div class='wrapBody'>
+			
+			<div id='loadingInitPage'>
+				<div class='iconAnimation'></div>
+			</div>
+
+			<div id='pageManageMenu'>
+
+				<div class='wrapperLegendManageMenu'>
+
+					<div id='wrapperCBExpand' onclick='clickCBExpand()'>
+						<input type='checkbox' id='cbExpand' onclick='clickCBExpand()' onchange='ubahCBExpand(this.checked)' /><label>Expand</label>
+					</div>
+
+					<div id='legendManageMenu'></div>
+
+				</div>
+
+				<div class='wrapperDataManageMenu'>
+					
+					<div class='wrapperNamaResto'><div id='namaResto'>Pencarian Nama Resto Sedang dilakukan</div></div>
+
+					<div id='dataManageMenu'></div>
+
+				</div>
+
+				<div class='wrapperButtonManageMenu'>
+
+					<div class='wrapperHomeAdmin'>
+						<a href='/manageResto/<?php echo $idResto; ?>' onclick='Button_BackToManageResto_Clicked(event, this)'>
+							<div class='wrapperButtonHomeAdmin'>
+								<img class='buttonHomeAdmin' src='<?php echo asset("/asset/fixed/homeadmin.png"); ?>' />
+							</div>
+							<div class='wrapperHoverText'>
+								<div class='hoverText'>Home<span id='namaResto'></span></div>
+							</div>
+						</a>
+					</div>
+
+					<div class='wrapperPerWrapper'>
+
+						<div class='perWrapper'>
+							<div class='namaNya'>Kategori Menu</div>
+							<div class='wrapperPerIcon'>
+								<div class='perIcon'>
+									<div class='urut' id='urut1_1'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/tambah.png"); ?>'/></div>
+									<div class='hoverText'>Add</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut1_2'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/edit.png"); ?>'/></div>
+									<div class='hoverText'>Edit</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut1_3'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/delete.png"); ?>'/></div>
+									<div class='hoverText'>Delete</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut1_4'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/sort.png"); ?>'/></div>
+									<div class='hoverText'>Order</div>
+								</div>
+							</div>
+						</div>
+
+						<div class='perWrapper'>
+							<div class='namaNya'>Menu</div>
+							<div class='wrapperPerIcon'>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_1'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/tambah.png"); ?>'/></div>
+									<div class='hoverText'>Add</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_2'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/edit.png"); ?>'/></div>
+									<div class='hoverText'>Edit</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_3'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/delete.png"); ?>'/></div>
+									<div class='hoverText'>Delete</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_4'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/sort.png"); ?>'/></div>
+									<div class='hoverText'>Order</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_5'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/copy.png"); ?>'/></div>
+									<div class='hoverText'>Copy</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_6'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/gallery.png"); ?>'/></div>
+									<div class='hoverText'>Gallery</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut2_7'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/comp.png"); ?>'/></div>
+									<div class='hoverText'>Komposisi</div>
+								</div>
+							</div>
+						</div>
+
+						<div class='perWrapper'>
+							<div class='namaNya'>Kategori Tambahan</div>
+							<div class='wrapperPerIcon'>
+								<div class='perIcon'>
+									<div class='urut' id='urut3_1'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/tambah.png"); ?>'/></div>
+									<div class='hoverText'>Add</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut3_2'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/edit.png"); ?>'/></div>
+									<div class='hoverText'>Edit</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut3_3'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/delete.png"); ?>'/></div>
+									<div class='hoverText'>Delete</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut3_4'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/copy.png"); ?>'/></div>
+									<div class='hoverText'>Copy</div>
+								</div>
+							</div>
+						</div>
+
+						<div class='perWrapper'>
+							<div class='namaNya'>Item Kategori Tambahan</div>
+							<div class='wrapperPerIcon'>
+								<div class='perIcon'>
+									<div class='urut' id='urut4_1'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/tambah.png"); ?>'/></div>
+									<div class='hoverText'>Add</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut4_2'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/edit.png"); ?>'/></div>
+									<div class='hoverText'>Edit</div>
+								</div>
+								<div class='perIcon'>
+									<div class='urut' id='urut4_3'></div>
+									<div class='iconNya'><img src='<?php echo asset("/asset/fixed/delete.png"); ?>'/></div>
+									<div class='hoverText'>Delete</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class='popUpBuatSubPageManageMenu'>	
+				<?php echo $__env->make('test.subpagemanagemenu.popupbackinitpage', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+
+			<div class='popUpBuatErrorSubPageManageMenu'>	
+				<?php echo $__env->make('test.subpagemanagemenu.popuperror', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+
+			<div class='popUpBuatLoadingSubPageManageMenu'>	
+				<?php echo $__env->make('test.subpagemanagemenu.popuploading', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+
+			<div class='subPageManageMenu'>
+
+				<div class='noUrutSubPage' id='page1_1'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.addkategori', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page1_2'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.editkategori', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page1_3'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.deletekategori', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page1_4'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.orderkategori', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_1'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.addmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_2'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.editmenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_3'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.deletemenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_4'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.ordermenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_5'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.copymenu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_5_2'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.copymenu2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page2_7'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.managekomposisi', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page3_1'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.addkategoritambahan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page3_2'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.editkategoritambahan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page3_3'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.deletekategoritambahan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page3_4'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.copykt', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page3_4_2'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.copykt2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page4_1'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.additemkategoritambahan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page4_2'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.edititemkategoritambahan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+
+			<div class='subPageManageMenu'>
+			
+				<div class='noUrutSubPage' id='page4_3'></div>
+
+				<div class='isiSubPage'>
+					<?php echo $__env->make('test.subpagemanagemenu.deleteitemkategoritambahan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+				</div>
+
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<div class='wrapperUI_editKategori'>
+
+	<div class='wrap1'>
+
+		<div class='fixedNya'>
+
+			<div class='buttonFixedNya' id='back'>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/prev.png"); ?>'/></div>
+				<div class='textNya'>Kembali</div>
+			</div>
+
+			<div class='judulSubPageNya'>
+				Edit Kategori
+			</div>
+
+			<div class='buttonFixedNya' id='save'>
+				<div class='textNya'>Simpan</div>
+				<div class='tandaNya'><img src='<?php echo asset("/asset/fixed/next.png"); ?>'/></div>
+			</div>
+
+		</div>
+
+		<div class='bawahFixedNya'>
+
+			<div class='wrapperNamaDanDesc'>
+				
+					<div class='wrapperNamaBefore'>
+						<input type='hidden' id='editkategori_idKMR' />
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><div id='editkategori_textNamaBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperNama'>
+						<div class='textNya'>Nama</div>
+						<div class='inputNya'><input id='editkategori_nama' /></div>
+					</div>
+
+					<div class='wrapperKapitalisasiNama'>
+						<span id='editkategori_buttonKapitalNama'>
+							Kapitalisasikan Nama
+						</span>
+					</div>
+
+					<div class='wrapperDescBefore'>
+						<div class='textNya'>Description</div>
+						<div class='inputNya'><div id='editkategori_textDescriptionBefore'>-</div></div>
+					</div>
+
+					<div class='wrapperDesc'>
+						<div class='textNya'>Description</div>
+						<div class='inputNya'><textarea id='editkategori_desc'></textarea></div>
+					</div>
+
+
+			</div>
+
+			<div class='wrapperSuggestion'>
+				
+				<div class='wrapperKeterangan'>
+					<div class='title'>
+						Usulan Nama Kategori
+					</div>
+				</div>
+
+				<div class='wrapperNyaSuggestion'>
+					<div id='editkategori_wrapperSuggestion'>
+							
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

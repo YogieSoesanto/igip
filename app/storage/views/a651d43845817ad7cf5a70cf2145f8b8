@@ -1,0 +1,27 @@
+<div class='wrapperError'>
+	<div class='wrapperTengahLayar'>
+		<div class='wrapLagi'>
+			<div class='wrapLagiLagi'>
+				
+				<div class='wrapperText'>
+					<div class='judulPopUp'>Harap Menunggu...</div>
+
+					<div class='textPopUp2'>
+						Sedang Menyimpan
+					</div>
+
+					<div class='textPopUp' id='textErrorNya'>
+						
+					</div>
+
+				</div>
+
+				<div class='wrapperButton'>
+					
+				</div>
+
+			</div>
+		</div>	
+	</div>
+</div>
+<div class='panelTransparan'></div>
